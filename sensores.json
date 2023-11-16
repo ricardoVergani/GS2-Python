@@ -1,0 +1,16 @@
+{
+  "salas": {
+    "Sala1": {
+      "temperatura": 22.5,
+      "umidade": 50.0
+    },
+    "Sala2": {
+      "temperatura": 27.9,
+      "umidade": 33.7
+    },
+    "Sala3": {
+      "temperatura": 29.6,
+      "umidade": 55.0
+    }
+  }
+}
