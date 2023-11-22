@@ -2,17 +2,26 @@ import json
 
 
 def carregar_sensores():
+    """
+        Função que mostra os sensores já presentes no arquivo json
+    """
     with open('sensores.json', 'r') as file:
         dados = json.load(file)
     return dados
 
 
 def salvar_sensores(dados):
+    """
+    Função que salva os sensores do json
+    """
     with open('sensores.json', 'w') as file:
         json.dump(dados, file, indent=2)
 
 
 def mostrar_menu():
+    """
+    Função que exibe o menu de opções no terminal 
+    """
     print("\nMenu:")
     print("--------------")
     print("1. Visualizar condições das salas")
@@ -28,12 +37,18 @@ def mostrar_menu():
 
 
 def visualizar_condicoes(dados):
+    """
+    Função para visualizar as condições das salas presentes no json 
+    """
     print("\nCondições das Salas: ")
     for sala, condicoes in dados['salas'].items():
         print(f"{sala}: Temperatura {condicoes['temperatura']}°C, Umidade {condicoes['umidade']}%")
 
 
 def atualizar_condicoes(dados):
+    """
+    Função que atualiza as condições de temperatura e humidade da sala
+    """
     sala = input("Digite o nome da sala: ")
     if sala in dados['salas']:
         temperatura = float(input("Digite a nova temperatura: "))
@@ -49,6 +64,9 @@ def atualizar_condicoes(dados):
 
 
 def adicionar_sala(dados):
+    """
+    Função que adiciona uma nova sala ao json
+    """
     try:
         nova_sala = input("Digite o nome da nova sala: ")
         temperatura = float(input("Digite a temperatura inicial: "))
@@ -64,6 +82,9 @@ def adicionar_sala(dados):
 
 
 def excluir_sala(dados):
+    """
+    Função que exclui uma sala existente do json
+    """
     try:
         sala = input("Digite o nome da sala a ser excluída: ")
     except Exception as e:
@@ -80,6 +101,9 @@ def excluir_sala(dados):
 
 
 def main():
+    """
+    Função que roda o menu, e funções para funcionamento completo do código
+    """
     try:
         dados_sensores = carregar_sensores()
 
